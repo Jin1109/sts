@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 기존에서 추가된 부분
+		annotaion 설정을 추가하려면 context관련 네임스페이스와 스키마 위치를 등록해야 합니다.
+		Namespace 탭에서 'context 항목 체크하세요
+		
+		xmlns:context="http://www.springframework.org/schema/context"
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+<!-- 이미 등록된 bean들의 annotation을 활성화 하기 위해 사용합니다.
+	 @Autowired, @Qualifier, @Resource annotation 인식합니다. -->	
+	 <context:annotation-config/>
+	 
+	<!-- bean 생성합니다. -->
+	<bean id="m" class="com.naver.myhome1.sample1_2.MessageBeanEn"/>
+	
+	<bean id="m2" class="com.naver.myhome1.sample1_2.MessageMultiple">
+    	<!-- @AutoWired로 자동 주입되어 생략합니다.
+    	<property name="bean">
+    		<ref bean="m"/>
+    	</property> -->
+      
+   </bean>
+		
+</beans>

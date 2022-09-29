@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=	"http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="m" class="com.naver.myhome1.sample1_1.MessageBeanEn"/>
+	
+	<bean id="m2" class="com.naver.myhome1.sample1_1.MessageMultiple">
+    	<property name="bean">
+    		<ref bean="m"/>
+    	</property>
+      
+   </bean>
+		
+</beans>
