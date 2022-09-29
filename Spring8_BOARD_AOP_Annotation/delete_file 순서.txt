@@ -1,0 +1,49 @@
+1. emp 테이블 구조와 동일하고 emp 테이블의 데이터 14개의 로우를 갖는 테이블 emp01 만들어 주세요.
+
+2. emp 테이블 구조에서 ename, job, empno 컬럼과 동일한 구조를 갖지만 데이터는 없는 테이블 temp 만들어 주세요.
+
+3. emp01을 삭제한 후 temp테이블에 삭제된 로우가 저장되도록 트리거를 작성합니다.
+
+
+
+
+========================================================================================
+SCOTT>select * from emp01;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10
+      7788 SCOTT                ANALYST                  7566 87/07/13       3000                    20
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30
+      7876 ADAMS                CLERK                    7788 87/07/13       1100                    20
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10
+
+14 rows selected.
+
+
+SCOTT>select * from temp;
+
+
+
+SCOTT>delete emp01 where deptno=20;
+
+5 rows deleted.
+
+SCOTT>select * from temp;
+
+ENAME                JOB                     EMPNO
+-------------------- ------------------ ----------
+SMITH                CLERK                    7369
+JONES                MANAGER                  7566
+SCOTT                ANALYST                  7788
+ADAMS                CLERK                    7876
+FORD                 ANALYST                  7902
