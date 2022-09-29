@@ -1,0 +1,52 @@
+*** 테이블 다시 생성합니다.
+
+1. member2 테이블을 다시 만듭니다.
+     암호화를 하면 password가 60자 필요합니다.
+     
+create table member2(
+	id			varchar2(15),
+	password	varchar2(60),
+	name		varchar2(15),
+	age			number(2),
+	gender		varchar2(5),
+	email		varchar2(30),
+	PRIMARY KEY(id)
+);
+
+2. comment2 테이블 다시 생성합니다.
+
+create table comments2(
+	num			number			primary key,
+	id			varchar2(30)	references member2(id),
+	content 	varchar2(200),
+	reg_date	date,
+	board_num	number references board2(board_num)
+				on delete cascade
+);
+
+create sequence com_seq2;
+
+3. BOARD2 테이블을 다시 만듭니다.  
+
+CREATE TABLE BOARD2(
+	BOARD_NUM		NUMBER,			--글 번호
+	BOARD_NAME		VARCHAR2(30),	--작성자
+	BOARD_PASS		VARCHAR2(20),	--비밀번호
+	BOARD_SUBJECT	VARCHAR2(300),	--제목
+	BOARD_CONTENT	VARCHAR2(4000),	--내용
+	BOARD_FILE		VARCHAR2(50),	--첨부될 파일 명(가공)
+	BOARD_ORIGINAL	VARCHAR2(50),	--첨부 파일 명
+	BOARD_RE_REF	NUMBER,			--답변 글 작성시 참조되는 글의 번호
+	BOARD_RE_LEV	NUMBER,			--답변 글의 깊이
+	BOARD_RE_SEQ	NUMBER,			--답변 글의 순서
+	BOARD_READCOUNT	NUMBER,			--글의 조회수
+	BOARD_DATE DATE,				--글의 작성 날짜
+	PRIMARY KEY(BOARD_NUM)
+);
+
+7. member.xml의 테이블 이름 변경합니다.
+   board.xml의 테이블 이름 변경합니다.
+   comments.xml의 테이블 이름 변경합니다.
+   
+   select count(*) from board
+   => select count(*) from board2
