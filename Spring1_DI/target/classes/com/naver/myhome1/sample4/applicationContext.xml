@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	해당 패키지에서 New -> Other -> Spring Bean Configuration File -> Next
+	->applicationContext 입력 -> Next -> beans 클릭 -> Finish
+ -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean 생성합니다. -->
+	<bean id="m2" class="com.naver.myhome1.sample4.MessageBeanImpl">
+		<constructor-arg>
+			<value>Spring</value>
+		</constructor-arg>
+		
+		<property name="greeting">
+			<value>안녕하세요!</value>
+		</property>	
+	</bean>
+</beans>
